@@ -1,10 +1,25 @@
-body {
-    margin: 0%;
-    padding: 0%;
-    background-color: black;
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*
+
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-.container {
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 190vh;
+    background: black;
+   
+}
+
+#time {
+    display: flex;
+    gap: 40px;
     font-family: Arial, Helvetica, sans-serif;
     color: #fff;
     font-weight: bold;

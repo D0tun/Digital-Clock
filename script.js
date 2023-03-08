@@ -1,36 +1,33 @@
-function displayTime(){
-    var dateTime = new Date();
-    var hrs = dateTime.getHours();
-    var min = dateTime.getMinutes();
-    var sec = dateTime.getSeconds();
-    var session = document.getElementById('session');
+setInterval(() =>{
+    let hours = document.getElementById('hours');
+    let minutes = document.getElementById('minutes');
+    let seconds = document.getElementById('seconds');
+    let ampm = document.getElementById('ampm');
 
-
+    let hrs = new Date().getHours();
+    let min = new Date().getMinutes();
+    let sec = new Date().getSeconds();
+    let am = hrs >= 12 ? "PM" : "AM";
     
-
-    if(hrs >= 12){
-        session.innerHTML = 'PM';
+    //conversion from 24hr clock to 12hr clock
+    if (hrs >= 12){
+        ampm.innerHTML = 'PM';
     }else {
-        session.innerHTML = 'AM';
+        ampm.innerHTML = 'AM';
     }
-
-    if(hrs > 12){
+     
+    if (hrs > 12){
         hrs = hrs - 12;
     }
-    
-    hrs = ("0" + hrs).slice(-2);
 
-    var slope = "0";
-    var strsec = "0";
-    if (min < 10 )
-        min = steep.concat(min);
-    if (sec < 10 )
-        sec = strsec.concat(sec);
+    // Making single digit to double digits
+    hrs = (hrs < 10) ? "0" + hrs : hrs;
+    min = (min < 10) ? "0" + min : min;
+    sec = (sec < 10) ? "0" + sec : sec;
 
+    hours.innerHTML = hrs;
+    minutes.innerHTML = min;
+    seconds.innerHTML = sec;
+    ampm.innerHTML = am;
+})
 
-    document.getElementById('hours').innerHTML = hrs;
-    document.getElementById('minutes').innerHTML = min;
-    document.getElementById('seconds').innerHTML = sec;
-}
-
-setInterval(displayTime, 10);
